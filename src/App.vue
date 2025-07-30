@@ -1,12 +1,24 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router';
-
-</script>
-
 <template>
-    <RouterView />
+    <div class="home-container">
+        <button @click="showModal = !showModal">открыть модалку</button>
+    </div>
+    <PromoCreateModal :show-modal="showModal" @close="showModal = !showModal"/>
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import PromoCreateModal from './components/modals/promoCreate/PromoCreateModal.vue';
+import { ref } from 'vue';
 
+
+const showModal = ref<boolean>(false);
+</script>
+
+<style scoped>
+.home-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>
